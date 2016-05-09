@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+</head>
+
+<body>
+	<a class="a11y-link" href="#content">Skip to content</a>
+	<header class="header">
+		<div class="site-title">
+			Fragmented Development
+		</div>
+		<nav>
+			<ul class="nav boxy">
+				<li class="nav-item"><a href="#">About</a></li>
+				<li class="nav-item"><a href="#">Blog</a></li>
+				<li class="nav-item"><a href="#">Contact</a></li>
+				<li class="nav-item"><a href="#">Projects</a></li>
+				<li class="nav-item"><a href="#">Résumé</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="content boxy">
+		<header>
+			<h1 class="content-title">Style guide</h1>
+			<p>
+				This document encompasses all of the assorted styles and layout
+				features of the Fragdev 5000 layout. Hopefully. If I get
+				everything right.
+			</p>
+		</header>
+		<p>
+			This document works as a basic styleguide for the Fragmented
+			Development 5000 layout, or FD5000 for short. It will have lots of
+			different sections that cover various scenarios/aspects of the web
+			site, and allow a one-stop shop for regression testing and all of
+			that fun stuff.
+		</p>
+		<p>
+			Let's begin, shall we?
+		</p>
+	</section>
+	<section class="content boxy">
+		<header>
+			<h1 class="content-title">Blog post</h1>
+			<p>
+				A post with text elements, as well as a code block, links,
+				lists, and other general textual elements.
+			</p>
+		</header>
+		<h1>The golden rule</h1>
+		<p>If there is any single rule to running a GNUsocial instance, it's
+		this: <strong>DO NOT EVER CHANGE YOUR URI</strong>. All of OStatus is
+		built on your GNUsocial profile URI, and if you change it, everything
+		falls down like a house of cards.</p>
+		<p>For this reason, when I was able to implement HTTPS, I left it in
+		mixed mode. My web server responded to both types of requests, and
+		things were good. Sort of. More on that later.</p>
+		<h2>Status of Micro.fragdev.com</h2>
+		<ul>
+			<li>Subscriptions to FragDev users (except for users/subscriptions
+				created after HTTPS was installed) are broken</li>
+			<li>The realtime plugin is broken</li>
+			<li>Older clients/platforms that don't recognize LetsEncrypt certs
+				are broken</li>
+		</ul>
+		<hr>
+		<pre><code class="language-bash">server {
+
+    # Enable HTTP/2 to speed up connections
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name example.com;
+
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+    root /var/www/micro.fragdev.com;
+    index index.php;
+
+    location / {
+
+        # Try fetching requests in the following order:
+        # - Look for a static file at that address
+        # - Look for a directory at that address
+        # - Rewrite the address
+        try_files $uri $uri/ /index.php?p=$uri&amp;$args;
+    }
+
+    # Prevent any avatar images from being run as PHP
+    location /avatar {
+        location ~ \.php {return 403;}
+        try_files $uri =404;
+    }
+
+    # Prevent any user-uploaded files from being run as PHP
+    location /file {
+        location ~ \.php {return 403;}
+        try_files $uri =404;
+    }
+
+    # Parse PHP files
+    location ~ \.php {
+
+        # Using try_files prevents PHP from having to process 404s
+        try_files $uri =404;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        include fastcgi.conf;
+    }
+
+    [ Other common configurations... ]
+}
+</code></pre>
+	</section>
+	<footer class="boxy">
+		© 2016, Jacob Hume. CSS/HTML/JS released under AGPLv3.
+	</footer>
+</body>
+
+</html>
