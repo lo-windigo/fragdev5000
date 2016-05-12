@@ -35,13 +35,23 @@ a {
 
 body {
 	color: #171b1b;
-	font-family: serif;
-	font-size: 1.3em;
+	font-family: 'Droid Serif','Georgia',serif;
+	font-size: 18px;
+	line-height: 1.2;
 }
 
 footer {
 	color: #abc0c0;
 	text-align: center;
+}
+
+footer,
+header>p {
+	color: #717f7f;
+}
+
+h1,h2,h3,h4 {
+	color: #ABC0C0;
 }
 
 h1,h2,h3,h4,header {
@@ -51,6 +61,13 @@ h1,h2,h3,h4,header {
 
 h1 {
 	font-size: 2em;
+}
+
+hr {
+	background: #abc0c0;
+	border: 0;
+	height: .25em;
+	margin: 1em 2em;
 }
 
 section>header>p {
@@ -89,9 +106,11 @@ html {
 }
 
 .nav a {
+	font-size: 1.3em;
 	margin: .5em;
 	padding: .5em;
 	text-decoration: none;
+	text-transform: uppercase;
 	transition: color .25s;
 }
 
