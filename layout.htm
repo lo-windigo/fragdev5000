@@ -27,8 +27,8 @@
 		</nav>
 	</header>
 	<section class="content boxy">
-		<header>
-			<h1 class="content-title">Style guide</h1>
+		<header class="content-header">
+			<h1>Style guide</h1>
 			<p>
 				This document encompasses all of the assorted styles and layout
 				features of the Fragdev 5000 layout. Hopefully. If I get
@@ -47,8 +47,8 @@
 		</p>
 	</section>
 	<section class="content boxy">
-		<header>
-			<h1 class="content-title">Blog post</h1>
+		<header class="content-header">
+			<h1>Blog post</h1>
 			<p>
 				A post with text elements, as well as a code block, links,
 				lists, and other general textual elements.
@@ -73,16 +73,6 @@
 		<hr>
 		<pre><code class="language-bash">server {
 
-    # Enable HTTP/2 to speed up connections
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-    server_name example.com;
-
-    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-    root /var/www/micro.fragdev.com;
-    index index.php;
-
     location / {
 
         # Try fetching requests in the following order:
@@ -91,29 +81,6 @@
         # - Rewrite the address
         try_files $uri $uri/ /index.php?p=$uri&amp;$args;
     }
-
-    # Prevent any avatar images from being run as PHP
-    location /avatar {
-        location ~ \.php {return 403;}
-        try_files $uri =404;
-    }
-
-    # Prevent any user-uploaded files from being run as PHP
-    location /file {
-        location ~ \.php {return 403;}
-        try_files $uri =404;
-    }
-
-    # Parse PHP files
-    location ~ \.php {
-
-        # Using try_files prevents PHP from having to process 404s
-        try_files $uri =404;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
-        include fastcgi.conf;
-    }
-
-    [ Other common configurations... ]
 }
 </code></pre>
 	</section>

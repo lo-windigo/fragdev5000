@@ -30,28 +30,22 @@
 }
 
 a {
-	color: #abc0c0;
+	color: #717f7f;
 }
 
 body {
 	color: #171b1b;
-	font-family: 'Droid Serif','Georgia',serif;
+	font-family: 'Roboto','Droid Serif','Georgia',serif;
 	font-size: 18px;
 	line-height: 1.2;
 }
 
 footer {
-	color: #abc0c0;
 	text-align: center;
 }
 
-footer,
-header>p {
+footer,h1,h2,h3,h4 {
 	color: #717f7f;
-}
-
-h1,h2,h3,h4 {
-	color: #ABC0C0;
 }
 
 h1,h2,h3,h4,header {
@@ -68,10 +62,6 @@ hr {
 	border: 0;
 	height: .25em;
 	margin: 1em 2em;
-}
-
-section>header>p {
-	font-style: italic;
 }
 
 html {
@@ -96,6 +86,19 @@ html {
 	padding: 1em;
 	margin: 1em 0;
 }
+
+.content-header>h1 {
+	margin-bottom: 0;
+}
+
+.content-header>h1+p {
+	margin-top: 0;
+}
+
+.content-header>p {
+	font-style: italic;
+}
+
 
 .nav {
 	display: flex;
