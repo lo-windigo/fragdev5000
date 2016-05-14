@@ -19,7 +19,11 @@
 /*= Font Styles ============*/
 
 @font-face {
-	font-family: header;
+	font-family: FD-Header;
+}
+
+@font-face {
+	font-family: FD-Body;
 }
 
 
@@ -35,7 +39,7 @@ a {
 
 body {
 	color: #171b1b;
-	font-family: 'Roboto','Droid Serif','Georgia',serif;
+	font-family: 'Roboto','FD-Body',sans-serif;
 	font-size: 18px;
 	line-height: 1.2;
 }
@@ -44,12 +48,9 @@ footer {
 	text-align: center;
 }
 
-footer,h1,h2,h3,h4 {
+footer,h1,h2,h3,h4,header {
 	color: #717f7f;
-}
-
-h1,h2,h3,h4,header {
-	font-family: 'Roboto Condensed',sans-serif;
+	font-family: 'Roboto Condensed','FD-Header',sans-serif;
 	font-weight: bold;
 }
 
