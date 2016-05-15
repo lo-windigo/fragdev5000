@@ -184,6 +184,8 @@ textarea {
 input[type=submit] {
 	cursor: pointer;
 	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 input[type=email],
@@ -243,9 +245,10 @@ textarea {
 	justify-content: center;
 	list-style: none;
 	margin: 0 0 1.5em 0;
+	padding: 1em 0;
 }
 
-.nav a {
+.nav-item {
 	font-size: 1.3em;
 	font-weight: bold;
 	margin: .5em;
@@ -259,6 +262,7 @@ textarea {
 	font-size: 3em;
 	font-weight: bold;
 	letter-spacing: .025em;
+	line-height: 1;
 	margin: 0;
 	padding: 0;
 	text-shadow: .125em .125em 0 #abc0c0;
@@ -292,9 +296,45 @@ textarea:hover {
 
 /*= Responsive =================*/
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 1300px) {
+
+	.content,
+	.nav,
+	.site-title {
+		max-width: 48em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+
+	.nav-item {
+		font-size: 1em;
+		margin: .25em;
+		padding: .25em;
+	}
 
 	body {
 		font-size: 1em;
+	}
+
+	html {
+		padding: .25em;
+	}
+
+	input[type=email],
+	input[type=text],
+	input[type=url] {
+		min-width: 0;
+		max-width: 24em;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	html {
+		padding: 0;
 	}
 }
