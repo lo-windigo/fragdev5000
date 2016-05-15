@@ -5,9 +5,9 @@
 	<title>Style Guide</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="/css/layout.css">
-	<link rel="stylesheet" type="text/css" href="/css/prism.css">
-	<script src="/js/prism.js" data-default-language="markup"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/layout.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/prism.css">
+	<script src="/static/js/prism.js" data-default-language="markup"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 	</header>
-	<section class="content boxy">
+	<section class="content boxy" id="content">
 		<header class="content-header">
 			<h1>Style guide</h1>
 			<p>
@@ -43,8 +43,31 @@
 			that fun stuff.
 		</p>
 		<p>
-			Let's begin, shall we?
+			Let's begin, shall we? (Horizontal rule next!)
 		</p>
+		<hr>
+		<h2>Unordered lists (and subheading)</h2>
+		<ul>
+			<li>Subscriptions to FragDev users (except for users/subscriptions
+				created after HTTPS was installed) are broken</li>
+			<li>The realtime plugin is broken</li>
+			<li>Older clients/platforms that don't recognize LetsEncrypt certs
+				are broken</li>
+		</ul>
+		<h2>Quick aside</h2>
+		<p>
+			Below is a quick example of an aside. They are very handy.
+		</p>
+		<aside>
+			<p>
+				This aside should be pretty distinct from other text. It's an aside, for
+				pete's sake!
+			</p>
+			<p>
+				It should be able to contain a couple paragraphs of text, maybe some other
+				stuff.
+			</p>
+		</aside>
 	</section>
 	<section class="content boxy">
 		<header class="content-header">
@@ -63,15 +86,9 @@
 		mixed mode. My web server responded to both types of requests, and
 		things were good. Sort of. More on that later.</p>
 		<h2>Status of Micro.fragdev.com</h2>
-		<ul>
-			<li>Subscriptions to FragDev users (except for users/subscriptions
-				created after HTTPS was installed) are broken</li>
-			<li>The realtime plugin is broken</li>
-			<li>Older clients/platforms that don't recognize LetsEncrypt certs
-				are broken</li>
-		</ul>
-		<hr>
-		<pre><code class="language-bash">server {
+		<p>Inline code samples: "<code>php5-memcache</code>"</p>
+		<h2>nginx code block</h2>
+		<pre><code class="language-nginx">server {
 
     location / {
 
@@ -83,6 +100,62 @@
     }
 }
 </code></pre>
+		<h2>PHP code block</h2>
+		<pre><code class="language-php">function myFunction($arg) {
+    echo $arg;
+}
+    
+myFunction('Hiya'); // prints "Hiya"
+</code></pre>
+		<h2>Bash code block</h2>
+		<pre><code class="language-bash">echo 'aptitude update; aptitude -y safe-upgrade' | \
+sudo at 3:00 AM
+</code></pre>
+	</section>
+	<section class="content boxy">
+		<header class="content-header">
+			<h1>Forms</h1>
+			<p>
+				This is the comment form for blog entries, but will do for a
+				form test.
+			</p>
+		</header>
+		<form method="post">
+			<input type='hidden' name='csrfmiddlewaretoken' value='2himOjeUeP5S920Ixn0riFEv72YicA1t' />
+			
+			<p>
+				
+				<label for="id_name">
+					Name:<br>
+					<input id="id_name" maxlength="150" name="name" type="text" />
+				</label>
+			</p>
+			<p>
+				
+				<label for="id_url">
+					Url:<br>
+					<input id="id_url" maxlength="200" name="url" type="url" />
+				</label>
+			</p>
+			<p>
+				
+				<label for="id_comment">
+					Comment:<br>
+					<textarea cols="40" id="id_comment" name="comment" rows="10">
+</textarea>
+				</label>
+			</p>
+			<p>
+				
+				<label for="id_verify">
+					Anti-spam: Type in the word &quot;power&quot;:<br>
+					<input id="id_verify" maxlength="5" name="verify" type="text" />
+				</label>
+			</p>
+			<p class="c">
+				<input type="submit" value="Make Comment">
+			</p>
+		</form>
 	</section>
 	<footer class="boxy">
 		© 2016, Jacob Hume. CSS/HTML/JS released under AGPLv3.

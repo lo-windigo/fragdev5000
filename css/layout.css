@@ -19,12 +19,69 @@
 /*= Font Styles ============*/
 
 @font-face {
-	font-family: FD-Header;
+	font-family: 'FD-Header';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+		url(/static/fonts/robotocondensed.woff2) format('woff2'),
+		url(https://fonts.gstatic.com/s/robotocondensed/v13/b9QBgL0iMZfDSpmcXcE8nHm2hrkyco9jQ3NKMXpgOBg.woff2) format('woff2');
+	unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000;
 }
 
 @font-face {
-	font-family: FD-Body;
+	font-family: 'FD-Header';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+		url(/static/fonts/robotocondensed.woff) format('woff'),
+		url(https://fonts.gstatic.com/s/robotocondensed/v13/b9QBgL0iMZfDSpmcXcE8nCSLrGe-fkSRw2DeVgOoWcQ.woff) format('woff')
+		url(/static/fonts/robotocondensed.ttf) format('truetype'),
+		url(https://fonts.gstatic.com/s/robotocondensed/v13/b9QBgL0iMZfDSpmcXcE8nDokq8qT6AIiNJ07Vf_NrVA.ttf) format('truetype');
 }
+
+@font-face {
+	font-family: 'FD-Body';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Roboto'), local('Roboto-Regular'),
+		url(/static/fonts/roboto-400.woff2) format('woff2'),
+		url(https://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');	
+	unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,
+		U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000;
+}
+
+@font-face {
+	font-family: 'FD-Body';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Roboto'), local('Roboto-Regular'),
+		url(/static/fonts/roboto-400.woff) format('woff'),
+		url(https://fonts.gstatic.com/s/roboto/v15/2UX7WLTfW3W8TclTUvlFyQ.woff) format('woff'),
+		url(/static/fonts/roboto-400.ttf) format('truetype'),
+		url(https://fonts.gstatic.com/s/roboto/v15/zN7GBFwfMP4uA6AR0HCoLQ.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: 'FD-Body';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Roboto Bold'), local('Roboto-Bold'),
+		url(/static/fonts/roboto-700.woff) format('woff'),
+		url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff')
+		url(/static/fonts/roboto-700.ttf) format('ttf'),
+		url(https://fonts.gstatic.com/s/roboto/v15/d-6IYplOFocCacKzxwXSOKCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'FD-Body';
+	font-style: italic;
+	font-weight: 400;
+	src: local('Roboto Italic'), local('Roboto-Italic'),
+		url(/static/fonts/roboto-italic-400.woff) format('woff'),
+		url(https://fonts.gstatic.com/s/roboto/v15/1pO9eUAp8pSF8VnRTP3xnvesZW2xOQ-xsNqO47m55DA.woff) format('woff'),
+		url(/static/fonts/roboto-italic-400.ttf) format('ttf'),
+		url(https://fonts.gstatic.com/s/roboto/v15/W4wDsBUluyw0tK3tykhXEfesZW2xOQ-xsNqO47m55DA.ttf) format('truetype');
+}
+
 
 
 /*= Base Styles ============*/
@@ -54,21 +111,60 @@ footer,h1,h2,h3,h4,header {
 	font-weight: bold;
 }
 
-h1 {
+header>h1 {
 	font-size: 2em;
 }
 
+h1 {
+	font-size: 1.4em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
 hr {
-	background: #abc0c0;
+	background: #717f7f;
 	border: 0;
 	height: .25em;
 	margin: 1em 2em;
 }
 
 html {
-	background: #BED6D6;
+	background: #bed6d6;
 	box-sizing: border-box;
 	padding: 1em;
+}
+
+pre {
+	max-height: 30em;
+}
+
+input,
+textarea {
+	background: #bed6d6;
+	border: 0;
+	box-shadow: inset .25em .25em 0 #abc0c0;
+	color: #000;
+	font: 1em 'Roboto','FD-Body',sans-serif;
+	padding: .75em;
+}
+
+input[type=submit] {
+	margin: 1em;
+	transition: margin .25s, padding .25s;
+}
+
+input[type=email],
+input[type=text],
+input[type=url] {
+	min-width: 24em;
+	width: 50%;
+}
+
+textarea {
+	height: 6em;
+	width: 100%;
 }
 
 
