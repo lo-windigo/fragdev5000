@@ -121,6 +121,20 @@ article+article {
 	border-width: .125em 0 0 0;
 }
 
+aside {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+aside,
+input,
+textarea {
+	background-color: #bed6d6;
+	border: 1px solid #abc0c0;
+	box-shadow: inset .25em .25em 0 #abc0c0;
+	color: #000;
+}
+
 body {
 	color: #171b1b;
 	font: 18px 'FD-Body',sans-serif;
@@ -131,7 +145,7 @@ footer {
 	text-align: center;
 }
 
-footer,h1,h2,h3,h4,header {
+footer,h1,h2,h3,h4,header,nav {
 	color: #717f7f;
 	font-family: 'FD-Header',sans-serif;
 	font-weight: bold;
@@ -172,10 +186,6 @@ pre {
 
 input,
 textarea {
-	background-color: #bed6d6;
-	border: 1px solid #abc0c0;
-	box-shadow: inset .25em .25em 0 #abc0c0;
-	color: #000;
 	font: 1em 'FD-Body',sans-serif;
 	padding: .75em;
 	transition: background-color .25s,box-shadow .25s;
@@ -239,11 +249,15 @@ textarea {
 	width: 48px;
 }
 
-.nav {
+.nav,
+.sub-nav {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	list-style: none;
+}
+
+.nav {
 	margin: 0 0 1.5em 0;
 	padding: 1em 0;
 }
@@ -269,6 +283,15 @@ textarea {
 	text-transform: uppercase;
 }
 
+.sub-nav {
+	margin: 0 0 1em 0;
+	padding: .5em 0;
+}
+
+.sub-nav .nav-item {
+	font-size: 1em;
+	text-decoration: underline;
+}
 
 /*= State ==================*/
 
@@ -296,7 +319,7 @@ textarea:hover {
 
 /*= Responsive =================*/
 
-@media screen and (max-width: 1300px) {
+@media screen and (min-width: 48em) {
 
 	.content,
 	.nav,
